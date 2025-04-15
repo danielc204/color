@@ -1,91 +1,14 @@
-<!DOCTYPE html>
-<html lang="he">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Picker</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fdfcf8;
-      direction: rtl;
-      overflow: hidden; /* מניעת סקרול */
-    }
 
-    .popup-container {
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      width: 100vw;
-    }
-
-    .tabs {
-      display: flex;
-      background-color: #e0ddd6;
-      justify-content: center;
-    }
-
-    .tab-button {
-      flex: 1;
-      padding: 12px;
-      background-color: #e0ddd6;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background-color 0.2s;
-    }
-
-    .tab-button.active {
-      background-color: #d6cfc4;
-      font-weight: bold;
-    }
-
-    .tab-content {
-      display: none;
-      padding: 25px;
-      text-align: center;
-      flex: 1;
-      overflow-y: auto; /* רק התוכן יגלול אם נדרש */
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    .color-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .color-circle {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      cursor: pointer;
-      border: 3px solid transparent;
-      transition: transform 0.2s, border 0.2s;
-    }
-
-    .color-circle:hover {
-      transform: scale(1.1);
-      border: 3px solid #999;
-    }
-  </style>
-</head>
-<body>
+<body onload="showTab(1)"> 
 <div class="popup-container">
   <div class="tabs">
-    <button class="tab-button active" onclick="showTab(0)">עדין</button>
+    <button class="tab-button" onclick="showTab(0)">עדין</button>
     <button class="tab-button" onclick="showTab(1)">בסיסי</button>
     <button class="tab-button" onclick="showTab(2)">פופולרי</button>
   </div>
 
-  <div class="tab-content active">
+  <div class="tab-content">
+    <!-- עדין -->
     <div class="color-grid">
       <div class="color-circle" style="background-color: #F8EDEB;" onclick="selectColor('#F8EDEB')"></div>
       <div class="color-circle" style="background-color: #E2ECE9;" onclick="selectColor('#E2ECE9')"></div>
@@ -101,6 +24,7 @@
   </div>
 
   <div class="tab-content">
+    <!-- בסיסי -->
     <div class="color-grid">
       <div class="color-circle" style="background-color: red;" onclick="selectColor('red')"></div>
       <div class="color-circle" style="background-color: blue;" onclick="selectColor('blue')"></div>
@@ -116,6 +40,7 @@
   </div>
 
   <div class="tab-content">
+    <!-- פופולרי -->
     <div class="color-grid">
       <div class="color-circle" style="background-color: #7F5AF0;" onclick="selectColor('#7F5AF0')"></div>
       <div class="color-circle" style="background-color: #F25F4C;" onclick="selectColor('#F25F4C')"></div>
@@ -137,16 +62,18 @@
     const buttons = document.querySelectorAll(".tab-button");
 
     tabs.forEach((tab, i) => {
-      tab.classList.toggle("active", i === index);
-      buttons[i].classList.toggle("active", i === index);
+      tab.classList.remove("active");
+      buttons[i].classList.remove("active");
     });
+
+    tabs[index].classList.add("active");
+    buttons[index].classList.add("active");
   }
 
   function selectColor(color) {
     alert("בחרת את הצבע: " + color);
-    // כאן תוכל לשלב את הצבע שנבחר בטאנקאבל דרך Web API או משתנה גלובלי
+    // כאן אפשר להוסיף קוד שיעביר את הצבע לטאנקאבל
   }
 </script>
-
 </body>
-</html>
+
