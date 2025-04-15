@@ -79,12 +79,13 @@
 <body>
 <div class="popup-container">
   <div class="tabs">
-    <button class="tab-button active" onclick="showTab(1)">עדין</button>
-    <button class="tab-button" onclick="showTab(0)">בסיסי</button>
+    <button class="tab-button active" onclick="showTab(0)">עדין</button>
+    <button class="tab-button" onclick="showTab(1)">בסיסי</button>
     <button class="tab-button" onclick="showTab(2)">פופולרי</button>
+    <button class="tab-button" onclick="showTab(3)">המלצת קווים ומחשבות</button>
   </div>
 
-  <div class="tab-content active">
+  <div class="tab-content">
     <div class="color-grid">
       <div class="color-circle" style="background-color: #F8EDEB;" onclick="selectColor('#F8EDEB')"></div>
       <div class="color-circle" style="background-color: #E2ECE9;" onclick="selectColor('#E2ECE9')"></div>
@@ -99,7 +100,7 @@
     </div>
   </div>
 
-  <div class="tab-content">
+  <div class="tab-content active">
     <div class="color-grid">
       <div class="color-circle" style="background-color: red;" onclick="selectColor('red')"></div>
       <div class="color-circle" style="background-color: blue;" onclick="selectColor('blue')"></div>
@@ -126,6 +127,16 @@
       <div class="color-circle" style="background-color: #FF7A00;" onclick="selectColor('#FF7A00')"></div>
       <div class="color-circle" style="background-color: #B8B8FF;" onclick="selectColor('#B8B8FF')"></div>
       <div class="color-circle" style="background-color: #F9BC60;" onclick="selectColor('#F9BC60')"></div>
+    </div>
+  </div>
+
+  <div class="tab-content">
+    <div class="color-grid">
+      <div class="color-circle" style="background-color: #25408f;" onclick="selectColor('#25408f')"></div>
+      <div class="color-circle" style="background-color: #23b0e6;" onclick="selectColor('#23b0e6')"></div>
+      <div class="color-circle" style="background-color: #92cd8d;" onclick="selectColor('#92cd8d')"></div>
+      <div class="color-circle" style="background-color: #e03d8e;" onclick="selectColor('#e03d8e')"></div>
+      <div class="color-circle" style="background-color: #f26722;" onclick="selectColor('#f26722')"></div>
     </div>
   </div>
 </div>
